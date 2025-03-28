@@ -1,5 +1,5 @@
 # Round Off - Figma Plugin
-<img width="1920" alt="RoundOffIMage" src="https://github.com/user-attachments/assets/ad6b1571-e9b4-4057-8641-3fe89c77c677" />
+<img width="1920" alt="NewIMage" src="https://github.com/user-attachments/assets/b386cdc3-8d48-4e03-ac60-a79473a28d3a" />
 
 ## Overview
 If you have any decimal values in the position value of a frame, Figma rounds up that pixel on export to PNG, and you get a white line along the edge of the exported asset. To avoid this, you need to round off all the decimal values manually, which is a pain. This plugin does it for you!
