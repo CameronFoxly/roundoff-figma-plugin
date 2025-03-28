@@ -16,6 +16,13 @@
       flex-direction: column;
       align-items: left;
     }
+    .container > * {
+      margin-bottom: 16px;
+    }
+
+    .container > *:last-child {
+      margin-bottom: 0;
+    }
     h1 {
       font-size: 18px;
       font-weight: 600;
@@ -46,6 +53,9 @@
       cursor: pointer;
       margin: 4px 0;
       transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     button:hover {
       background-color: #0d99c6;
@@ -54,13 +64,19 @@
       background-color: #0b7a9e;
     }
     .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin-right: 8px;
-      display: inline-block;
       width: 16px;
       height: 16px;
+      vertical-align: middle;
+      filter: invert(1);
+      position: relative;
+      top: 1px; /* Adjusts alignment to match text */
     }
     .roundoff-icon {
-      background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12" y2="16"/></svg>') no-repeat center;
+      background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><line x1="8.12" y1="8.12" x2="15.88" y2="15.88"/><line x1="8.12" y1="15.88" x2="15.88" y2="8.12"/></svg>') no-repeat center;
       background-size: contain;
     }
     .close-icon {
@@ -68,20 +84,25 @@
       background-size: contain;
     }
     button span {
-      display: inline-block;
-      vertical-align: middle;
+      display: flex;
+      align-items: center;
     }
 
     button span.icon {
       margin-right: 8px;
     }
+    p {
+      font-size: 12px;
+      color: #6b7280; /* Secondary grey */
+      margin: 0;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Roundoff Plugin</h1>
-    <div class="t
-    oggle">
+    <h1>Round Off</h1>
+    <p>Remove any decimal values from the position value all top level frames to ensure export without extra pixels.</p>
+    <div class="toggle">
       <label>
         <input type="checkbox" id="applyToSelected" /> Only apply to selected frames
       </label>
@@ -89,13 +110,9 @@
     <button id="roundOff">
       <span class="icon roundoff-icon"></span>Round off
     </button>
-    <button id="close">
-      <span class="icon close-icon"></span>Close Plugin
-    </button>
   </div>
   <script>
     const roundOffButton = document.getElementById('roundOff');
-    const closeButton = document.getElementById('close');
     const applyToSelectedCheckbox = document.getElementById('applyToSelected');
 
     roundOffButton.onclick = () => {
@@ -105,10 +122,6 @@
           applyToSelected: applyToSelectedCheckbox.checked
         }
       }, '*');
-    };
-
-    closeButton.onclick = () => {
-      parent.postMessage({ pluginMessage: { type: 'close-plugin' } }, '*');
     };
   </script>
 </body>

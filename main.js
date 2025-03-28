@@ -1,4 +1,4 @@
-figma.showUI(__html__, { width: 300, height: 200 });
+figma.showUI(__html__, { width: 300, height: 250 });
 
 figma.ui.onmessage = (msg) => {
   if (msg.type === 'round-off') {
