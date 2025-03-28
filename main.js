@@ -7,14 +7,14 @@ figma.ui.onmessage = (msg) => {
       ? figma.currentPage.selection.filter(node => node.type === 'FRAME' && node.parent === figma.currentPage)
       : figma.currentPage.children.filter(node => node.type === 'FRAME');
 
-    frames.forEach(frame => {
-      if (frame.type === 'FRAME') {
-        frame.x = Math.round(frame.x);
-        frame.y = Math.round(frame.y);
-      }
+    const adjustedFrames = frames.filter(frame => {
+      const originalX = frame.x;
+      const originalY = frame.y;
+      frame.x = Math.round(frame.x);
+      frame.y = Math.round(frame.y);
+      return frame.x !== originalX || frame.y !== originalY;
     });
-
-    figma.notify(`${frames.length} frame(s) adjusted.`);
+    figma.notify(`${adjustedFrames.length} frame(s) adjusted.`);
   }
 
   if (msg.type === 'close-plugin') {
