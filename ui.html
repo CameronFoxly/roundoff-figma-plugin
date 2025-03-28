@@ -3,21 +3,95 @@
 <head>
   <title>Roundoff Plugin</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    .container { padding: 16px; }
-    .toggle { margin-bottom: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f4f6;
+      color: #333;
+    }
+    .container {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+    }
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .toggle {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .toggle label {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .toggle input {
+      margin-right: 8px;
+    }
+    button {
+      background-color: #1abcfe;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 4px 0;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #0d99c6;
+    }
+    button:active {
+      background-color: #0b7a9e;
+    }
+    .icon {
+      margin-right: 8px;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+    }
+    .roundoff-icon {
+      background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12" y2="16"/></svg>') no-repeat center;
+      background-size: contain;
+    }
+    .close-icon {
+      background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>') no-repeat center;
+      background-size: contain;
+    }
+    button span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    button span.icon {
+      margin-right: 8px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Roundoff Plugin</h1>
-    <div class="toggle">
+    <div class="t
+    oggle">
       <label>
         <input type="checkbox" id="applyToSelected" /> Only apply to selected frames
       </label>
     </div>
-    <button id="roundOff">Round off</button>
-    <button id="close">Close Plugin</button>
+    <button id="roundOff">
+      <span class="icon roundoff-icon"></span>Round off
+    </button>
+    <button id="close">
+      <span class="icon close-icon"></span>Close Plugin
+    </button>
   </div>
   <script>
     const roundOffButton = document.getElementById('roundOff');
