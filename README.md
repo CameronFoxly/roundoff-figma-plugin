@@ -1,7 +1,7 @@
-# Roundoff Figma Plugin
+# Round Off - Figma Plugin
 
 ## Overview
-The Roundoff Figma Plugin is designed to help you clean up your designs by rounding off decimal values in the `x` and `y` position properties of top-level frames on the current page. It ensures your designs are pixel-perfect and organized.
+The Round Off Figma Plugin is designed to help you clean up your designs by rounding off decimal values in the `x` and `y` position properties of top-level frames on the current page. It ensures your designs are pixel-perfect and organized.
 
 ## Features
 - **Round off positions**: Adjusts the `x` and `y` position values of top-level frames to the nearest integer.
