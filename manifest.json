@@ -1,8 +1,11 @@
 {
-  "name": "Roundoff Figma Plugin",
-  "id": "roundoff-figma-plugin",
+  "name": "Round Off",
+  "id": "1487515089424193240",
   "api": "1.0.0",
   "main": "main.js",
   "ui": "ui.html",
-  "editorType": ["figma"]
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": { "allowedDomains": ["none"] }
+
 }
